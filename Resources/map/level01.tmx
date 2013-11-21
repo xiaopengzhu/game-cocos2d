@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="10" tilewidth="32" tileheight="32">
+  <tileset firstgid="1" name="ground" tilewidth="32" tileheight="32">
+    <image source="ground.png" width="420" height="316"/>
+  </tileset>
+  <layer name="块层 1" width="20" height="10">
+    <data encoding="base64" compression="zlib">
+      eJyTZGBgiKMilgTiUCriUfNGzSPVPGqmZwBfikFn
+    </data>
+  </layer>
+  <objectgroup name="objects" width="20" height="10">
+    <object name="PlayerPoint" x="34" y="34" width="27" height="27"/>
+  </objectgroup>
+</map>
