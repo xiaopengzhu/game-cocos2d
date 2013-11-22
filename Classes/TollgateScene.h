@@ -13,6 +13,7 @@ public:
 
     virtual bool init();
     static CCScene* scene();
+	void menuCloseCallback(CCObject* pSender);
 };
 
 #endif
