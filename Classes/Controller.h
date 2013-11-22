@@ -6,7 +6,7 @@
 
 using namespace cocos2d;
 
-class Controller : public CCNode {
+class Controller : public CCLayer {
 public:
     /* ÉèÖÃ¼àÌı¶ÔÏó */
     void setControllerListener(ControllerListener* mControllerListener);

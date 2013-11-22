@@ -1,6 +1,7 @@
 #include "TollgateScene.h"
 #include "Player.h"
 #include "SimpleMoveControll.h"
+#include "ThreeDirectionController.h"
 
 CCScene* TollgateScene::scene()
 {
@@ -24,8 +25,9 @@ bool TollgateScene::init()
 	
 
 	/* ------------ 创建玩家简单移动控制器 -------------- */
-    SimpleMoveControll* mSMoveControll = SimpleMoveControll::create();
-    mSMoveControll->setiSpeed(1);
+    ThreeDirectionController* mSMoveControll = ThreeDirectionController::create();
+    mSMoveControll->setiXSpeed(0);
+	mSMoveControll->setiYSpeed(0);
 
     /* 控制器要添加到场景中才能获得update事件 */
     this->addChild(mSMoveControll);

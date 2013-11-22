@@ -11,6 +11,9 @@ public:
 
 	void run();
 
+	void setViewPointByPlayer();
+
+	virtual void setSimplePosition(int x, int y);
 };
 
 #endif

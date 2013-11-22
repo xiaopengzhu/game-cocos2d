@@ -26,3 +26,14 @@ cocos2d::CCPoint Entity::getCurPosition()
 
     return CCPoint::CCPoint(0, 0);
 }
+
+CCPoint Entity::tileCoordForPosition( CCPoint pos)
+{
+	CCSize mapTileNum = map->getMapSize();
+	CCSize tiledSize = map->getTileSize();
+
+	float x = pos.x / tiledSize.width;
+	float y = pos.y / tiledSize.height;
+
+	return ccp(x, y);
+}

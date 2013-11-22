@@ -19,6 +19,11 @@ public:
 protected:
     CCSprite* mSprite;
     Controller* mController;
+	CCTMXTiledMap* map;
+	CCTMXLayer* meta;
+	CCTMXLayer* barrier;
+
+	CCPoint tileCoordForPosition(CCPoint pos);
 };
 
 #endif

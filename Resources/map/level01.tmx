@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="10" tilewidth="32" tileheight="32">
-  <tileset firstgid="1" name="ground" tilewidth="32" tileheight="32">
-    <image source="ground.png" width="420" height="316"/>
-  </tileset>
-  <layer name="块层 1" width="20" height="10">
-    <data encoding="base64" compression="zlib">
-      eJyTZGBgiKMilgTiUCriUfNGzSPVPGqmZwBfikFn
-    </data>
-  </layer>
-  <objectgroup name="objects" width="20" height="10">
-    <object name="PlayerPoint" x="34" y="34" width="27" height="27"/>
-  </objectgroup>
+ <tileset firstgid="1" name="ground" tilewidth="32" tileheight="32">
+  <image source="ground.png" width="420" height="316"/>
+ </tileset>
+ <tileset firstgid="118" name="meta_tiles" tilewidth="32" tileheight="32">
+  <image source="meta_tiles.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="star" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="120" name="objects" tilewidth="32" tileheight="32">
+  <image source="objects.png" width="531" height="425"/>
+ </tileset>
+ <layer name="块层 1" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJyTZGBgiKMilgTiUCriUfNGzSPVPGqmZwBfikFn
+  </data>
+ </layer>
+ <objectgroup name="objects" width="20" height="10">
+  <object name="PlayerPoint" x="36" y="142" width="27" height="27"/>
+ </objectgroup>
+ <layer name="barrier" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAtYMYhHkmmPnqZR8gscvThso8Ys3D5j1x3jDTzyAUAaL0CPg==
+  </data>
+ </layer>
+ <layer name="meta" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAtKCdRHAbKSBSntnmEzCJHHy77iDELl//IdcdIM49cAAC5kgjK
+  </data>
+ </layer>
 </map>
