@@ -1,16 +1,1 @@
-/proj.blackberry/
-/proj.ios/
-/proj.linux/
-/proj.mac/
-/proj.marmalade/
-/proj.win32/
-/proj.winrt/
-/proj.wp8/
-/proj.android/*.*
-/proj.android/assets/
-/proj.android/bin/
-/proj.android/gen/
-/proj.android/libs/
-/proj.android/obj/
-/proj.android/res/
-/proj.android/src/
+/proj.*/
