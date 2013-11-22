@@ -24,7 +24,7 @@ cocos2d::CCPoint Entity::getCurPosition()
         return mSprite->getPosition();
     }
 
-    return CCPoint::CCPoint(0, 0);
+    return CCPoint(0, 0);
 }
 
 CCPoint Entity::tileCoordForPosition( CCPoint pos)

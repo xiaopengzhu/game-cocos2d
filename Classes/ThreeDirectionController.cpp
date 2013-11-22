@@ -19,6 +19,7 @@ void ThreeDirectionController::update( float dt )
     }
 
     CCPoint curPos = mControllerListener->getCurPosition();
+
     curPos.x += iXSpeed;
     curPos.y += iYSpeed;
 

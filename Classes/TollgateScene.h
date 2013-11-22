@@ -13,7 +13,6 @@ public:
 
     virtual bool init();
     static CCScene* scene();
-
 };
 
 #endif

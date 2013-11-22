@@ -77,9 +77,10 @@ void Player::setViewPointByPlayer()
     CCSize tiledSize = map->getTileSize();
 
 	/* 地图大小 */
-    CCSize mapSize = CCSize::CCSize(
-    mapTiledNum.width * tiledSize.width,
-    mapTiledNum.height * tiledSize.height);
+    CCSize mapSize = CCSize(
+		mapTiledNum.width * tiledSize.width,
+		mapTiledNum.height * tiledSize.height
+		);
 
     /* 屏幕大小 */
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
@@ -88,15 +89,15 @@ void Player::setViewPointByPlayer()
     CCPoint spritePos = mSprite->getPosition();
 
     /* 如果精灵坐标小于屏幕的一半，则取屏幕中点坐标，否则取精灵的坐标 */
-    float x = max(spritePos.x, visibleSize.width / 2);
-    float y = max(spritePos.y, visibleSize.height / 2);
+    float x = spritePos.x < (visibleSize.width / 2) ? (visibleSize.width / 2) : spritePos.x;
+	float y = spritePos.y < (visibleSize.height / 2) ? (visibleSize.height / 2) : spritePos.y;
 
     /* 如果x、y的坐标大于右上角的极限值，则取极限值的坐标（极限值是指不让地图超出屏幕造成出现黑边的极限坐标） */
-    x = min(x, mapSize.width - visibleSize.width / 2);
-    y = min(y, mapSize.height - visibleSize.height / 2);
+    x = x < (mapSize.width - visibleSize.width / 2) ? x : (mapSize.width - visibleSize.width / 2);
+    y = y < (mapSize.height - visibleSize.height / 2) ? y : (mapSize.height - visibleSize.height / 2);
 
-    CCPoint destPos = CCPoint::CCPoint(x, y);
-    CCPoint centerPos = CCPoint::CCPoint(visibleSize.width / 2, visibleSize.height / 2);
+    CCPoint destPos = CCPoint(x, y);
+    CCPoint centerPos = CCPoint(visibleSize.width / 2, visibleSize.height / 2);
 
     /* 计算屏幕中点和所要移动的目的点之间的距离 */
     CCPoint viewPos = ccpSub(centerPos, destPos);
@@ -106,7 +107,6 @@ void Player::setViewPointByPlayer()
 
 void Player::setSimplePosition(int x, int y)
 {
-	/* -----------------判断是否不可通行---------------- */
 	/* 获得当前主角在地图中的格子位置 */
 	CCPoint tiledPos = tileCoordForPosition(ccp(x, y));
 
@@ -128,18 +128,18 @@ void Player::setSimplePosition(int x, int y)
         /* 判断Collidable属性是否为true,是的话，不让玩家移动 */
 		if(prop->m_sString.compare("true") == 0) {
             if(x > 0) {
-                x -= 1;
-            }
-            else {
-                x += 1;
-            }
+                    x -= 1;
+                }
+                else {
+                    x += 1;
+                }
 
-            if(y > 0) {
-                y -= 1;
-            }
-            else {
-                y += 1;
-            }
+                if(y > 0) {
+                    y -= 1;
+                }
+                else {
+                    y += 1;
+                }
         }
 
 		prop = propertiesDict->valueForKey("star");
@@ -150,7 +150,26 @@ void Player::setSimplePosition(int x, int y)
 
     }
 
+	/* 地图方块数量 */
+	CCSize mapTiledNum = map->getMapSize();
+
+    /* 地图单个格子大小 */
+    CCSize tiledSize = map->getTileSize();
+
+	/* 地图大小 */
+    CCSize mapSize = CCSize(
+		mapTiledNum.width * tiledSize.width,
+		mapTiledNum.height * tiledSize.height
+		);
+	x = x < (mapSize.width - 38) ? x : (mapSize.width - 38);
+    y = y < (mapSize.height - 38) ? y : (mapSize.height - 38);
+	if (x < 32) x = 32;
+	if (y < 32) y= 32;
+
 	Entity::setSimplePosition(x, y);
+	
+	//调试日志
+	CCLOG ("%4.2f %4.3f \n", mapSize.width, mapSize.height);
+
 	setViewPointByPlayer();
 }
-
